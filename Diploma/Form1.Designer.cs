@@ -78,7 +78,6 @@
             this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Длина профиля";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // button_load
             // 
@@ -122,7 +121,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Один размер";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // tabPage2
             // 
@@ -176,7 +174,6 @@
             this.label4.Size = new System.Drawing.Size(138, 13);
             this.label4.TabIndex = 9;
             this.label4.Text = "Интервал длины профиля";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // tb_length_B
             // 
@@ -219,7 +216,6 @@
             this.dg_input.Name = "dg_input";
             this.dg_input.Size = new System.Drawing.Size(237, 206);
             this.dg_input.TabIndex = 3;
-            this.dg_input.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_input_CellContentClick);
             // 
             // groupBox2
             // 

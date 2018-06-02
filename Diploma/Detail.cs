@@ -8,8 +8,16 @@ namespace Diploma
 {
     public class Detail
     {
-        public int  i, b, cb;
-        public double l,y, _y;
+        //Положение детали???
+        public int i;
+        //Всего деталей
+        public int b;
+        //Сколько осталось раскроить
+        public int cb;
+        //Длина детали
+        public double l;
+        public double y; 
+        public double _y;
         public Detail(double _l, int _b, int _i)
         {
             l = _l;

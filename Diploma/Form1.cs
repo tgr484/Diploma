@@ -106,12 +106,12 @@ namespace Diploma
 
         public void output(Cutting c)
         {            
-            int rows = c.cp_list.Count;
-            int cols = c.dl.list.Count + 1;
+            int rows = c.cuttintgPatternList.Count;
+            int cols = c.detailList.list.Count + 1;
             dg_output.Columns.Add("num", "Номер карты");
             for (int i = 0; i < cols - 1; ++i )
             {
-                dg_output.Columns.Add("c" + i.ToString(), c.dl.list[i].l.ToString());
+                dg_output.Columns.Add("c" + i.ToString(), c.detailList.list[i].l.ToString());
             }
             dg_output.Columns.Add("c" + cols.ToString(), "Остаток");           
             for (int i = 0; i < rows; i++)
@@ -125,9 +125,9 @@ namespace Diploma
                 dg_output.Rows[i].Cells[0].Value = (i + 1).ToString();
                 for (int j = 1; j < cols; ++j)
                 {
-                    dg_output.Rows[i].Cells[j].Value = c.cp_list[i].map[j-1].ToString();
+                    dg_output.Rows[i].Cells[j].Value = c.cuttintgPatternList[i].map[j-1].ToString();
                 }
-                dg_output.Rows[i].Cells[cols].Value = c.cp_list[i].h;
+                dg_output.Rows[i].Cells[cols].Value = c.cuttintgPatternList[i].h;
             }
             labelCoef.Text = Math.Round(c.calc_coef(), 2).ToString();
         }
@@ -160,16 +160,18 @@ namespace Diploma
             }
             label_best.Text = "0";
             Cutting cutting = new Cutting(Convert.ToDouble(tb_length.Text), dl);
+            //Создали карту раскроя первый подходящий
             cutting.create_ffd_cutting_map();            
+            //Расчитали нижнюю границу
             cutting.calc_botton_border();
-            if (cutting.cp_list.Count > cutting.bottom_border)
+            if (cutting.cuttintgPatternList.Count > cutting.bottom_border)
             {
                 int i = 0;
                 while (true)
                 {
                     cutting.S_task();
                     ++i;
-                    if (cutting.cp_list.Count == cutting.bottom_border || i > 100)
+                    if (cutting.cuttintgPatternList.Count == cutting.bottom_border || i > 100)
                         break;
                 }
                    
@@ -178,21 +180,7 @@ namespace Diploma
             output(cutting);
             label_best.Text = tb_length.Text;
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void button_create_cutting_best_Click(object sender, EventArgs e)
         {
@@ -231,14 +219,14 @@ namespace Diploma
                 dl.reset_cb();
                 cuttings[i].create_ffd_cutting_map();
                 cuttings[i].calc_botton_border();
-                if (cuttings[i].cp_list.Count > cuttings[i].bottom_border)
+                if (cuttings[i].cuttintgPatternList.Count > cuttings[i].bottom_border)
                 {
                     int j = 0;
                     while (true)
                     {
                         cuttings[i].S_task();
                         ++j;
-                        if (cuttings[i].cp_list.Count == cuttings[i].bottom_border || j > 100)
+                        if (cuttings[i].cuttintgPatternList.Count == cuttings[i].bottom_border || j > 100)
                             break;
                     }
                 }
@@ -247,15 +235,15 @@ namespace Diploma
                 {
                     best_i = 0;
                     best_coef = cuttings[i].cutting_coef;
-                    map_count = cuttings[i].cp_list.Count;
+                    map_count = cuttings[i].cuttintgPatternList.Count;
                 }
                 else
                 {
-                    if (cuttings[i].cutting_coef > best_coef || map_count > cuttings[i].cp_list.Count)
+                    if (cuttings[i].cutting_coef > best_coef || map_count > cuttings[i].cuttintgPatternList.Count)
                     {
                         best_i = i;
                         best_coef = cuttings[i].cutting_coef;
-                        map_count = cuttings[i].cp_list.Count;
+                        map_count = cuttings[i].cuttintgPatternList.Count;
                     }
                 }
                
@@ -266,21 +254,7 @@ namespace Diploma
         
            
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lb_output_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void tb_length_A_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -302,11 +276,6 @@ namespace Diploma
                     e.Handled = true;
                 }
             }
-        }
-
-        private void dg_input_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        }       
     }
 }
