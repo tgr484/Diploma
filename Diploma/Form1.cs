@@ -276,6 +276,11 @@ namespace Diploma
                     e.Handled = true;
                 }
             }
-        }       
+        }
+
+        private void tabPage5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
