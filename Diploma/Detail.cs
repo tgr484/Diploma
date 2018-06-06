@@ -16,14 +16,17 @@ namespace Diploma
         public int cb;
         //Длина детали
         public double l;
+        //Высота детали
+        public double k;
         public double y; 
         public double _y;
-        public Detail(double _l, int _b, int _i)
+        public Detail(double _l, int _b, int _i, int _k = 0)
         {
             l = _l;
             b = _b;
             cb = b; //сколько осталось деталей
             i = _i;
+            k = _k;
         }
     }
 }
