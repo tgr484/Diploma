@@ -34,6 +34,7 @@ namespace Diploma
 
         }
 
+        
         public Detail str_to_det(String s, int _i)
         {
             String l = "";
@@ -132,12 +133,35 @@ namespace Diploma
             labelCoef.Text = Math.Round(c.calc_coef(), 2).ToString();
         }
 
+        /// <summary>
+        /// Преобразовывает инпут в список деталей в памяти 1 мерный
+        /// </summary>
         public void dg_to_dl()
         {
             for (int i = 0; i < dg_input.Rows.Count-1; ++i)
             {
                 dl.add_detail(str_to_det((dg_input.Rows[i].Cells[0].Value + "\t" + dg_input.Rows[i].Cells[1].Value.ToString()), i));
             }
+        }
+
+        /// <summary>
+        /// Преобразовывает инпут в список деталей в памяти 2 мерный
+        /// </summary>
+        public void dg_to_dl2()
+        {
+            for (int i = 0; i < dg_input.Rows.Count - 1; ++i)
+            {
+                //dl.add_detail(str_to_det((dg_input.Rows[i].Cells[0].Value + "\t" + dg_input.Rows[i].Cells[1].Value.ToString()), i));
+                try
+                {
+                    dl.add_detail(new Detail(Convert.ToDouble(dg_input.Rows[i].Cells[0].Value), Convert.ToInt32(dg_input.Rows[i].Cells[1].Value), i, Convert.ToInt32(dg_input.Rows[i].Cells[2].Value)));
+                }
+                catch
+                {
+                    dl.add_detail(new Detail(-1, -1, -1));
+                }
+            }
+
         }
 
         private void button_create_cutting_Click(object sender, EventArgs e)
@@ -283,7 +307,22 @@ namespace Diploma
 
         }
 
+        /// <summary>
+        /// Двумерный раскрой
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
+        {
+            //Очистка результата
+            dg_output2.Rows.Clear();
+            dg_output2.Columns.Clear();
+            dl = new Detail_list(dg_input2.RowCount - 1);
+            dl.list.Clear();
+            dg_to_dl();
+        }
+
+        private void button_create_cutting_single_Click(object sender, EventArgs e)
         {
 
         }

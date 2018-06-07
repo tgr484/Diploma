@@ -57,16 +57,16 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dg_output2 = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dg_input2 = new System.Windows.Forms.DataGridView();
             this.l = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.h = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.с = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button_create_cutting2 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -82,9 +82,9 @@
             this.tabPage2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_output2)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_input2)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.SuspendLayout();
@@ -267,6 +267,7 @@
             this.button_create_cutting_single.TabIndex = 3;
             this.button_create_cutting_single.Text = "Сформировать раскрой";
             this.button_create_cutting_single.UseVisualStyleBackColor = true;
+            this.button_create_cutting_single.Click += new System.EventHandler(this.button_create_cutting_single_Click);
             // 
             // tabPage2
             // 
@@ -355,7 +356,7 @@
             // 
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.dataGridView2);
+            this.groupBox4.Controls.Add(this.dg_output2);
             this.groupBox4.Location = new System.Drawing.Point(406, 98);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(399, 241);
@@ -381,17 +382,17 @@
             this.label9.TabIndex = 1;
             this.label9.Text = "Коэфициент раскроя";
             // 
-            // dataGridView2
+            // dg_output2
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 60);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(366, 150);
-            this.dataGridView2.TabIndex = 0;
+            this.dg_output2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_output2.Location = new System.Drawing.Point(6, 60);
+            this.dg_output2.Name = "dg_output2";
+            this.dg_output2.Size = new System.Drawing.Size(366, 150);
+            this.dg_output2.TabIndex = 0;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Controls.Add(this.dg_input2);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Location = new System.Drawing.Point(11, 98);
             this.groupBox3.Name = "groupBox3";
@@ -400,17 +401,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Входные данные";
             // 
-            // dataGridView1
+            // dg_input2
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dg_input2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_input2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.l,
             this.h,
             this.с});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 60);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(349, 150);
-            this.dataGridView1.TabIndex = 1;
+            this.dg_input2.Location = new System.Drawing.Point(6, 60);
+            this.dg_input2.Name = "dg_input2";
+            this.dg_input2.Size = new System.Drawing.Size(349, 150);
+            this.dg_input2.TabIndex = 1;
             // 
             // l
             // 
@@ -447,7 +448,7 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.button2);
+            this.tabPage5.Controls.Add(this.button_create_cutting2);
             this.tabPage5.Controls.Add(this.label8);
             this.tabPage5.Controls.Add(this.label7);
             this.tabPage5.Controls.Add(this.textBox2);
@@ -461,15 +462,15 @@
             this.tabPage5.UseVisualStyleBackColor = true;
             this.tabPage5.Click += new System.EventHandler(this.tabPage5_Click);
             // 
-            // button2
+            // button_create_cutting2
             // 
-            this.button2.Location = new System.Drawing.Point(236, 17);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 36);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Сформировать раскрой";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button_create_cutting2.Location = new System.Drawing.Point(236, 17);
+            this.button_create_cutting2.Name = "button_create_cutting2";
+            this.button_create_cutting2.Size = new System.Drawing.Size(96, 36);
+            this.button_create_cutting2.TabIndex = 4;
+            this.button_create_cutting2.Text = "Сформировать раскрой";
+            this.button_create_cutting2.UseVisualStyleBackColor = true;
+            this.button_create_cutting2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label8
             // 
@@ -526,9 +527,9 @@
             this.tabPage4.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_output2)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_input2)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
@@ -569,8 +570,8 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dg_input2;
+        private System.Windows.Forms.Button button_create_cutting2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox2;
@@ -578,7 +579,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn l;
         private System.Windows.Forms.DataGridViewTextBoxColumn h;
         private System.Windows.Forms.DataGridViewTextBoxColumn с;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dg_output2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
     }

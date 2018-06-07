@@ -8,7 +8,7 @@ namespace Diploma
 {
     public class Cutting
     {
-        //Количество укладываемых прутков?
+        //Число раскройных карт?
         public int M;
         //Длина болванки
         public double L;

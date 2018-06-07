@@ -8,7 +8,7 @@ namespace Diploma
 {
     public class Detail
     {
-        //Положение детали???
+        //Порядковый номер детали
         public int i;
         //Всего деталей
         public int b;
@@ -16,17 +16,17 @@ namespace Diploma
         public int cb;
         //Длина детали
         public double l;
-        //Высота детали
-        public double k;
+        //Ширина детали
+        public double w;
         public double y; 
         public double _y;
-        public Detail(double _l, int _b, int _i, int _k = 0)
+        public Detail(double _l, int _b, int _i, double _w = 0)
         {
             l = _l;
             b = _b;
             cb = b; //сколько осталось деталей
             i = _i;
-            k = _k;
+            w = _w;
         }
     }
 }
