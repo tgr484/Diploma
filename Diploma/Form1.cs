@@ -319,7 +319,9 @@ namespace Diploma
             dg_output2.Columns.Clear();
             dl = new Detail_list(dg_input2.RowCount - 1);
             dl.list.Clear();
-            dg_to_dl();
+            dg_to_dl2();
+            Cutting2d cutting = new Cutting2d(Convert.ToDouble(tb_l2.Text), Convert.ToDouble(tb_w2.Text), dl);
+
         }
 
         private void button_create_cutting_single_Click(object sender, EventArgs e)

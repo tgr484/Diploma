@@ -69,8 +69,8 @@
             this.button_create_cutting2 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_w2 = new System.Windows.Forms.TextBox();
+            this.tb_l2 = new System.Windows.Forms.TextBox();
             this.SelectTypeOfCutting.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -451,8 +451,8 @@
             this.tabPage5.Controls.Add(this.button_create_cutting2);
             this.tabPage5.Controls.Add(this.label8);
             this.tabPage5.Controls.Add(this.label7);
-            this.tabPage5.Controls.Add(this.textBox2);
-            this.tabPage5.Controls.Add(this.textBox1);
+            this.tabPage5.Controls.Add(this.tb_w2);
+            this.tabPage5.Controls.Add(this.tb_l2);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
@@ -490,19 +490,19 @@
             this.label7.TabIndex = 2;
             this.label7.Text = "Длина";
             // 
-            // textBox2
+            // tb_w2
             // 
-            this.textBox2.Location = new System.Drawing.Point(130, 26);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.tb_w2.Location = new System.Drawing.Point(130, 26);
+            this.tb_w2.Name = "tb_w2";
+            this.tb_w2.Size = new System.Drawing.Size(100, 20);
+            this.tb_w2.TabIndex = 1;
             // 
-            // textBox1
+            // tb_l2
             // 
-            this.textBox1.Location = new System.Drawing.Point(24, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.tb_l2.Location = new System.Drawing.Point(24, 26);
+            this.tb_l2.Name = "tb_l2";
+            this.tb_l2.Size = new System.Drawing.Size(100, 20);
+            this.tb_l2.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -574,8 +574,8 @@
         private System.Windows.Forms.Button button_create_cutting2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_w2;
+        private System.Windows.Forms.TextBox tb_l2;
         private System.Windows.Forms.DataGridViewTextBoxColumn l;
         private System.Windows.Forms.DataGridViewTextBoxColumn h;
         private System.Windows.Forms.DataGridViewTextBoxColumn с;

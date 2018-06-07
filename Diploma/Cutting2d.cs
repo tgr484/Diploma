@@ -21,6 +21,14 @@ namespace Diploma
         public int bottom_border, N;
         //Список деталей (класс)
         public Detail_list detailList;
-        public List<Cutting_Pattern> cuttintgPatternList;
+        public List<Cutting_Pattern> cuttintgPatternList;        
+
+        public Cutting2d(double v1, double v2, Detail_list dl)
+        {
+            this.M = dl.list.Count;
+            this.L = v1;
+            this.W = v2;
+            this.detailList = dl;
+        }
     }
 }
