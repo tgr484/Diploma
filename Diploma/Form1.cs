@@ -332,10 +332,5 @@ namespace Diploma
             Cutting2d cutting = new Cutting2d(Convert.ToDouble(tb_l2.Text), Convert.ToDouble(tb_w2.Text), dl);
 
         }
-
-        private void button_create_cutting_single_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

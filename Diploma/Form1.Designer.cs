@@ -267,7 +267,7 @@
             this.button_create_cutting_single.TabIndex = 3;
             this.button_create_cutting_single.Text = "Сформировать раскрой";
             this.button_create_cutting_single.UseVisualStyleBackColor = true;
-            this.button_create_cutting_single.Click += new System.EventHandler(this.button_create_cutting_single_Click);
+            this.button_create_cutting_single.Click += new System.EventHandler(this.button_create_cutting_Click);
             // 
             // tabPage2
             // 
@@ -367,7 +367,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(127, 29);
+            this.label10.Location = new System.Drawing.Point(126, 25);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(13, 13);
             this.label10.TabIndex = 2;
