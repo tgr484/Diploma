@@ -164,25 +164,36 @@ namespace Diploma
 
         }
 
+        /// <summary>
+        /// Стандартный одномерный раскрой
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_create_cutting_Click(object sender, EventArgs e)
         {
-
+            //Проверки на валидность
             if (dg_input.Rows.Count < 2)
             {
                 MessageBox.Show("Деталей для раскроя должно быть, как минимум две", "Ошибка");
                 return;
             }
+            //Очистка выходной формы
             dg_output.Rows.Clear();
             dg_output.Columns.Clear();
+            //Иницализация списка деталей
             dl = new Detail_list(dg_input.RowCount - 1);
+            //Очистка списка
             dl.list.Clear();
+            //Заполнения списка
             dg_to_dl();
+            //Валидация списка
             if (Convert.ToDouble(tb_length.Text) < dl.calc_max())
             {
                 MessageBox.Show("Одна из деталей длиннее стержня", "Ошибка");
                 return;
             }
             label_best.Text = "0";
+            //Инициализция раскроя
             Cutting cutting = new Cutting(Convert.ToDouble(tb_length.Text), dl);
             //Создали карту раскроя первый подходящий
             cutting.create_ffd_cutting_map();            
@@ -197,15 +208,18 @@ namespace Diploma
                     ++i;
                     if (cutting.cuttintgPatternList.Count == cutting.bottom_border || i > 100)
                         break;
-                }
-                   
-               
+                }               
             }
+            //Вывели результат
             output(cutting);
             label_best.Text = tb_length.Text;
         }
        
-
+        /// <summary>
+        /// Подбор лучшего типоразмера
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_create_cutting_best_Click(object sender, EventArgs e)
         {
             if(Convert.ToDouble(tb_length_A.Text) >= Convert.ToDouble(tb_length_B.Text))
@@ -222,9 +236,7 @@ namespace Diploma
             {
                 MessageBox.Show("Одна из деталей длиннее наименьшего стержня", "Ошибка");
                 return;
-            }
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
+            }           
             dg_output.Rows.Clear();
             dg_output.Columns.Clear();
             List<Cutting> cuttings = new List<Cutting>();
@@ -273,10 +285,7 @@ namespace Diploma
                
             }
             output(cuttings[best_i]);
-            label_best.Text = cuttings[best_i].L.ToString();
-            stopWatch.Stop();
-        
-           
+            label_best.Text = cuttings[best_i].L.ToString();           
         }
       
 
