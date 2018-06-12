@@ -63,44 +63,7 @@ namespace Diploma
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-
-            openFileDialog1.InitialDirectory = "C:\\Users\\Пушок\\Desktop\\Тесты\\";
-            openFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
-            openFileDialog1.FilterIndex = 2;
-            openFileDialog1.RestoreDirectory = true;
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                String input = File.ReadAllText(openFileDialog1.FileName);
-                input = input.Replace("\r","");
-                input = input.Replace(".", ",");
-                String[] substrings = input.Split('\n');
-                dl = new Detail_list(substrings.Length);
-                for (int i = 0; i < substrings.Length; ++i)
-                {
-                    if (substrings[i] == "")
-                        continue;
-                    Detail det = str_to_det(substrings[i], i);
-                    if (det.l == -1 || det.b == -1 || det.i == -1)
-                    {
-                        MessageBox.Show("Неверный входной файл", "Ошибка");
-                        return;
-                    }
-                    else
-                        dl.add_detail(det);
-                }
-                dg_input.Rows.Clear();
-
-                foreach (Detail d in dl.list)
-                {
-                    dg_input.Rows.Add(d.l.ToString(), d.b.ToString());
-                }
-            }
-           
-
+        {     
             
         }
 
@@ -142,117 +105,12 @@ namespace Diploma
 
         private void button_create_cutting_Click(object sender, EventArgs e)
         {
-
-            if (dg_input.Rows.Count < 2)
-            {
-                MessageBox.Show("Деталей для раскроя должно быть, как минимум две", "Ошибка");
-                return;
-            }
-            dg_output.Rows.Clear();
-            dg_output.Columns.Clear();
-            dl = new Detail_list(dg_input.RowCount - 1);
-            dl.list.Clear();
-            dg_to_dl();
-            if (Convert.ToDouble(tb_length.Text) < dl.calc_max())
-            {
-                MessageBox.Show("Одна из деталей длиннее стержня", "Ошибка");
-                return;
-            }
-            label_best.Text = "0";
-            Cutting cutting = new Cutting(Convert.ToDouble(tb_length.Text), dl);
-            //Создали карту раскроя первый подходящий
-            cutting.create_ffd_cutting_map();            
-            //Расчитали нижнюю границу
-            cutting.calc_botton_border();
-            if (cutting.cuttintgPatternList.Count > cutting.bottom_border)
-            {
-                int i = 0;
-                while (true)
-                {
-                    cutting.S_task();
-                    ++i;
-                    if (cutting.cuttintgPatternList.Count == cutting.bottom_border || i > 100)
-                        break;
-                }
-                   
-               
-            }
-            output(cutting);
-            label_best.Text = tb_length.Text;
+            
         }
        
 
         private void button_create_cutting_best_Click(object sender, EventArgs e)
-        {
-            if(Convert.ToDouble(tb_length_A.Text) >= Convert.ToDouble(tb_length_B.Text))
-            {
-                MessageBox.Show("Интервал неверный", "Ошибка");
-                return;
-            }
-            if (dg_input.Rows.Count < 2)
-            {
-                MessageBox.Show("Деталей для раскроя должно быть, как минимум две", "Ошибка");
-                return;
-            }
-            if (Convert.ToDouble(tb_length_A.Text) < dl.calc_max())
-            {
-                MessageBox.Show("Одна из деталей длиннее наименьшего стержня", "Ошибка");
-                return;
-            }
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
-            dg_output.Rows.Clear();
-            dg_output.Columns.Clear();
-            List<Cutting> cuttings = new List<Cutting>();
-            dl = new Detail_list(dg_input.RowCount - 1);
-            dl.list.Clear();
-            dg_to_dl();
-            for (int i = Convert.ToInt32(tb_length_A.Text); i <= Convert.ToInt32(tb_length_B.Text); ++i)
-            {
-                cuttings.Add(new Cutting(i, dl));
-            }
-            int best_i = 0;
-            double best_coef = 0;
-            int map_count = 0;
-            for (int i = 0; i < cuttings.Count; ++i)
-            {
-                dl.reset_cb();
-                cuttings[i].create_ffd_cutting_map();
-                cuttings[i].calc_botton_border();
-                if (cuttings[i].cuttintgPatternList.Count > cuttings[i].bottom_border)
-                {
-                    int j = 0;
-                    while (true)
-                    {
-                        cuttings[i].S_task();
-                        ++j;
-                        if (cuttings[i].cuttintgPatternList.Count == cuttings[i].bottom_border || j > 100)
-                            break;
-                    }
-                }
-                cuttings[i].calc_coef();
-                if(i == 0)
-                {
-                    best_i = 0;
-                    best_coef = cuttings[i].cutting_coef;
-                    map_count = cuttings[i].cuttintgPatternList.Count;
-                }
-                else
-                {
-                    if (cuttings[i].cutting_coef > best_coef || map_count > cuttings[i].cuttintgPatternList.Count)
-                    {
-                        best_i = i;
-                        best_coef = cuttings[i].cutting_coef;
-                        map_count = cuttings[i].cuttintgPatternList.Count;
-                    }
-                }
-               
-            }
-            output(cuttings[best_i]);
-            label_best.Text = cuttings[best_i].L.ToString();
-            stopWatch.Stop();
-        
-           
+        {           
         }
       
 
@@ -286,6 +144,152 @@ namespace Diploma
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_load_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+
+            openFileDialog1.InitialDirectory = "C:\\Users\\Пушок\\Desktop\\Тесты\\";
+            openFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog1.FilterIndex = 2;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                String input = File.ReadAllText(openFileDialog1.FileName);
+                input = input.Replace("\r", "");
+                input = input.Replace(".", ",");
+                String[] substrings = input.Split('\n');
+                dl = new Detail_list(substrings.Length);
+                for (int i = 0; i < substrings.Length; ++i)
+                {
+                    if (substrings[i] == "")
+                        continue;
+                    Detail det = str_to_det(substrings[i], i);
+                    if (det.l == -1 || det.b == -1 || det.i == -1)
+                    {
+                        MessageBox.Show("Неверный входной файл", "Ошибка");
+                        return;
+                    }
+                    else
+                        dl.add_detail(det);
+                }
+                dg_input.Rows.Clear();
+
+                foreach (Detail d in dl.list)
+                {
+                    dg_input.Rows.Add(d.l.ToString(), d.b.ToString());
+                }
+            }
+        }
+
+        private void button_create_cutting_single_Click(object sender, EventArgs e)
+        {
+            if (dg_input.Rows.Count < 2)
+            {
+                MessageBox.Show("Деталей для раскроя должно быть, как минимум две", "Ошибка");
+                return;
+            }
+            dg_output.Rows.Clear();
+            dg_output.Columns.Clear();
+            dl = new Detail_list(dg_input.RowCount - 1);
+            dl.list.Clear();
+            dg_to_dl();
+            if (Convert.ToDouble(tb_length.Text) < dl.calc_max())
+            {
+                MessageBox.Show("Одна из деталей длиннее стержня", "Ошибка");
+                return;
+            }
+            label_best.Text = "0";
+            Cutting cutting = new Cutting(Convert.ToDouble(tb_length.Text), dl);
+            //Создали карту раскроя первый подходящий
+            cutting.create_ffd_cutting_map();
+            //Расчитали нижнюю границу
+            cutting.calc_botton_border();
+            if (cutting.cuttintgPatternList.Count > cutting.bottom_border)
+            {
+                int i = 0;
+                while (true)
+                {
+                    cutting.S_task();
+                    ++i;
+                    if (cutting.cuttintgPatternList.Count == cutting.bottom_border || i > 100)
+                        break;
+                }
+
+
+            }
+            output(cutting);
+            label_best.Text = tb_length.Text;
+        }
+
+        private void button_create_cutting_best_Click_1(object sender, EventArgs e)
+        {
+            if (Convert.ToDouble(tb_length_A.Text) >= Convert.ToDouble(tb_length_B.Text))
+            {
+                MessageBox.Show("Интервал неверный", "Ошибка");
+                return;
+            }
+            if (dg_input.Rows.Count < 2)
+            {
+                MessageBox.Show("Деталей для раскроя должно быть, как минимум две", "Ошибка");
+                return;
+            }
+            if (Convert.ToDouble(tb_length_A.Text) < dl.calc_max())
+            {
+                MessageBox.Show("Одна из деталей длиннее наименьшего стержня", "Ошибка");
+                return;
+            }           
+            dg_output.Rows.Clear();
+            dg_output.Columns.Clear();
+            List<Cutting> cuttings = new List<Cutting>();
+            dl = new Detail_list(dg_input.RowCount - 1);
+            dl.list.Clear();
+            dg_to_dl();
+            for (int i = Convert.ToInt32(tb_length_A.Text); i <= Convert.ToInt32(tb_length_B.Text); ++i)
+            {
+                cuttings.Add(new Cutting(i, dl));
+            }
+            int best_i = 0;
+            double best_coef = 0;
+            int map_count = 0;
+            for (int i = 0; i < cuttings.Count; ++i)
+            {
+                dl.reset_cb();
+                cuttings[i].create_ffd_cutting_map();
+                cuttings[i].calc_botton_border();
+                if (cuttings[i].cuttintgPatternList.Count > cuttings[i].bottom_border)
+                {
+                    int j = 0;
+                    while (true)
+                    {
+                        cuttings[i].S_task();
+                        ++j;
+                        if (cuttings[i].cuttintgPatternList.Count == cuttings[i].bottom_border || j > 100)
+                            break;
+                    }
+                }
+                cuttings[i].calc_coef();
+                if (i == 0)
+                {
+                    best_i = 0;
+                    best_coef = cuttings[i].cutting_coef;
+                    map_count = cuttings[i].cuttintgPatternList.Count;
+                }
+                else
+                {
+                    if (cuttings[i].cutting_coef > best_coef || map_count > cuttings[i].cuttintgPatternList.Count)
+                    {
+                        best_i = i;
+                        best_coef = cuttings[i].cutting_coef;
+                        map_count = cuttings[i].cuttintgPatternList.Count;
+                    }
+                }
+
+            }
+            output(cuttings[best_i]);
+            label_best.Text = cuttings[best_i].L.ToString();
         }
     }
 }

@@ -217,6 +217,7 @@
             this.button_load.TabIndex = 2;
             this.button_load.Text = "Загрузить заготовки из файла";
             this.button_load.UseVisualStyleBackColor = true;
+            this.button_load.Click += new System.EventHandler(this.button_load_Click);
             // 
             // tabControl_Type
             // 
@@ -267,6 +268,7 @@
             this.button_create_cutting_single.TabIndex = 3;
             this.button_create_cutting_single.Text = "Сформировать раскрой";
             this.button_create_cutting_single.UseVisualStyleBackColor = true;
+            this.button_create_cutting_single.Click += new System.EventHandler(this.button_create_cutting_single_Click);
             // 
             // tabPage2
             // 
@@ -292,6 +294,7 @@
             this.button_create_cutting_best.TabIndex = 12;
             this.button_create_cutting_best.Text = "Сформировать раскрой";
             this.button_create_cutting_best.UseVisualStyleBackColor = true;
+            this.button_create_cutting_best.Click += new System.EventHandler(this.button_create_cutting_best_Click_1);
             // 
             // label6
             // 
