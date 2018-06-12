@@ -88,13 +88,7 @@ namespace Diploma
             labelCoef.Text = Math.Round(c.calc_coef(), 2).ToString();
         }
 
-        public void dg_to_dl()
-        {
-            for (int i = 0; i < dg_input.Rows.Count-1; ++i)
-            {
-                dl.add_detail(str_to_det((dg_input.Rows[i].Cells[0].Value + "\t" + dg_input.Rows[i].Cells[1].Value.ToString()), i));
-            }
-        }       
+       
 
         private void tb_length_A_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -155,34 +149,7 @@ namespace Diploma
                 }
             }
         }
-
-        public void output(Cutting c)
-        {            
-            int rows = c.cuttintgPatternList.Count;
-            int cols = c.detailList.list.Count + 1;
-            dg_output.Columns.Add("num", "Номер карты");
-            for (int i = 0; i < cols - 1; ++i )
-            {
-                dg_output.Columns.Add("c" + i.ToString(), c.detailList.list[i].l.ToString());
-            }
-            dg_output.Columns.Add("c" + cols.ToString(), "Остаток");           
-            for (int i = 0; i < rows; i++)
-            {
-                dg_output.Rows.Add();
-            }
-
-
-            for (int i = 0; i < rows; i++ )
-            {
-                dg_output.Rows[i].Cells[0].Value = (i + 1).ToString();
-                for (int j = 1; j < cols; ++j)
-                {
-                    dg_output.Rows[i].Cells[j].Value = c.cuttintgPatternList[i].map[j-1].ToString();
-                }
-                dg_output.Rows[i].Cells[cols].Value = c.cuttintgPatternList[i].h;
-            }
-            labelCoef.Text = Math.Round(c.calc_coef(), 2).ToString();
-        }
+       
 
         /// <summary>
         /// Преобразовывает инпут в список деталей в памяти 1 мерный
@@ -337,30 +304,9 @@ namespace Diploma
             }
             output(cuttings[best_i]);
             label_best.Text = cuttings[best_i].L.ToString();           
-        }
-      
+        }     
 
-        private void tb_length_A_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsDigit(e.KeyChar)) && !((e.KeyChar == ',') && (((TextBox)sender).Text.IndexOf(".") == -1) && (((TextBox)sender).Text.Length != 0)))
-            {
-                if (e.KeyChar != (char)Keys.Back)
-                {
-                    e.Handled = true;
-                }
-            }
-        }
-
-        private void tb_length_B_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsDigit(e.KeyChar)) && !((e.KeyChar == ',') && (((TextBox)sender).Text.IndexOf(".") == -1) && (((TextBox)sender).Text.Length != 0)))
-            {
-                if (e.KeyChar != (char)Keys.Back)
-                {
-                    e.Handled = true;
-                }
-            }
-        }
+        
 
         private void tabPage5_Click(object sender, EventArgs e)
         {
