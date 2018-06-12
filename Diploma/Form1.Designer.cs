@@ -250,6 +250,7 @@
             this.tb_length.TabIndex = 0;
             this.tb_length.Text = "0";
             this.tb_length.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_length.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label1
             // 
@@ -331,6 +332,7 @@
             this.tb_length_B.TabIndex = 8;
             this.tb_length_B.Text = "1";
             this.tb_length_B.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_length_B.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_length_B_KeyPress);
             // 
             // tb_length_A
             // 
@@ -340,6 +342,7 @@
             this.tb_length_A.TabIndex = 8;
             this.tb_length_A.Text = "0";
             this.tb_length_A.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tb_length_A.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_length_A_KeyPress);
             // 
             // tabPage4
             // 
@@ -493,7 +496,6 @@
             // 
             // tb_w2
             // 
-        
             this.tb_w2.Location = new System.Drawing.Point(130, 26);
             this.tb_w2.Name = "tb_w2";
             this.tb_w2.Size = new System.Drawing.Size(100, 20);
@@ -501,7 +503,6 @@
             // 
             // tb_l2
             // 
-       
             this.tb_l2.Location = new System.Drawing.Point(24, 26);
             this.tb_l2.Name = "tb_l2";
             this.tb_l2.Size = new System.Drawing.Size(100, 20);
