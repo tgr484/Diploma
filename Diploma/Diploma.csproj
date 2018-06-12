@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Cutting.cs" />
     <Compile Include="Cutting2d.cs" />
+    <Compile Include="Cutting_Pattern2.cs" />
     <Compile Include="Cutting_Pattern.cs" />
     <Compile Include="Detail.cs" />
     <Compile Include="Detail_list.cs" />
