@@ -31,7 +31,6 @@ namespace Diploma
                     e.Handled = true;
                 }
             }
-
         }
 
         public Detail str_to_det(String s, int _i)
@@ -55,17 +54,10 @@ namespace Diploma
                 return new Detail(Convert.ToDouble(l), Convert.ToInt32(b), _i);
             }
             catch
-            {
-                
+            {                
                 return new Detail(-1,-1,-1); 
-            }
-            
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {     
-            
-        }
+            }            
+        }      
 
         public void output(Cutting c)
         {            
@@ -101,18 +93,7 @@ namespace Diploma
             {
                 dl.add_detail(str_to_det((dg_input.Rows[i].Cells[0].Value + "\t" + dg_input.Rows[i].Cells[1].Value.ToString()), i));
             }
-        }
-
-        private void button_create_cutting_Click(object sender, EventArgs e)
-        {
-            
-        }
-       
-
-        private void button_create_cutting_best_Click(object sender, EventArgs e)
-        {           
-        }
-      
+        }       
 
         private void tb_length_A_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -134,17 +115,7 @@ namespace Diploma
                     e.Handled = true;
                 }
             }
-        }
-
-        private void tabPage5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
+        }       
 
         private void button_load_Click(object sender, EventArgs e)
         {
@@ -198,7 +169,7 @@ namespace Diploma
             dg_to_dl();
             if (Convert.ToDouble(tb_length.Text) < dl.calc_max())
             {
-                MessageBox.Show("Одна из деталей длиннее стержня", "Ошибка");
+                MessageBox.Show("Одна из деталей длиннее заготовки", "Ошибка");
                 return;
             }
             label_best.Text = "0";
@@ -217,8 +188,6 @@ namespace Diploma
                     if (cutting.cuttintgPatternList.Count == cutting.bottom_border || i > 100)
                         break;
                 }
-
-
             }
             output(cutting);
             label_best.Text = tb_length.Text;
@@ -238,7 +207,7 @@ namespace Diploma
             }
             if (Convert.ToDouble(tb_length_A.Text) < dl.calc_max())
             {
-                MessageBox.Show("Одна из деталей длиннее наименьшего стержня", "Ошибка");
+                MessageBox.Show("Одна из деталей длиннее наименьшей заготовки", "Ошибка");
                 return;
             }           
             dg_output.Rows.Clear();

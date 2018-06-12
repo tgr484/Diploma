@@ -462,7 +462,6 @@
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Один размер";
             this.tabPage5.UseVisualStyleBackColor = true;
-            this.tabPage5.Click += new System.EventHandler(this.tabPage5_Click);
             // 
             // button2
             // 
@@ -472,7 +471,6 @@
             this.button2.TabIndex = 4;
             this.button2.Text = "Сформировать раскрой";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label8
             // 
