@@ -57,20 +57,20 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.dg_output2 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dg_input2 = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.l = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.h = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.с = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.button_create_cutting2 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.tb_w2 = new System.Windows.Forms.TextBox();
-            this.tb_l2 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SelectTypeOfCutting.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -82,9 +82,9 @@
             this.tabPage2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_output2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_input2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.SuspendLayout();
@@ -250,7 +250,6 @@
             this.tb_length.TabIndex = 0;
             this.tb_length.Text = "0";
             this.tb_length.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tb_length.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label1
             // 
@@ -269,7 +268,7 @@
             this.button_create_cutting_single.TabIndex = 3;
             this.button_create_cutting_single.Text = "Сформировать раскрой";
             this.button_create_cutting_single.UseVisualStyleBackColor = true;
-            this.button_create_cutting_single.Click += new System.EventHandler(this.button_create_cutting_Click);
+            this.button_create_cutting_single.Click += new System.EventHandler(this.button_create_cutting_single_Click);
             // 
             // tabPage2
             // 
@@ -295,7 +294,7 @@
             this.button_create_cutting_best.TabIndex = 12;
             this.button_create_cutting_best.Text = "Сформировать раскрой";
             this.button_create_cutting_best.UseVisualStyleBackColor = true;
-            this.button_create_cutting_best.Click += new System.EventHandler(this.button_create_cutting_best_Click);
+            this.button_create_cutting_best.Click += new System.EventHandler(this.button_create_cutting_best_Click_1);
             // 
             // label6
             // 
@@ -332,7 +331,6 @@
             this.tb_length_B.TabIndex = 8;
             this.tb_length_B.Text = "1";
             this.tb_length_B.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tb_length_B.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_length_B_KeyPress);
             // 
             // tb_length_A
             // 
@@ -342,7 +340,6 @@
             this.tb_length_A.TabIndex = 8;
             this.tb_length_A.Text = "0";
             this.tb_length_A.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tb_length_A.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_length_A_KeyPress);
             // 
             // tabPage4
             // 
@@ -361,7 +358,7 @@
             // 
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.dg_output2);
+            this.groupBox4.Controls.Add(this.dataGridView2);
             this.groupBox4.Location = new System.Drawing.Point(406, 98);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(399, 241);
@@ -372,7 +369,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(126, 25);
+            this.label10.Location = new System.Drawing.Point(127, 29);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(13, 13);
             this.label10.TabIndex = 2;
@@ -387,17 +384,17 @@
             this.label9.TabIndex = 1;
             this.label9.Text = "Коэфициент раскроя";
             // 
-            // dg_output2
+            // dataGridView2
             // 
-            this.dg_output2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_output2.Location = new System.Drawing.Point(6, 60);
-            this.dg_output2.Name = "dg_output2";
-            this.dg_output2.Size = new System.Drawing.Size(366, 150);
-            this.dg_output2.TabIndex = 0;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(6, 60);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(366, 150);
+            this.dataGridView2.TabIndex = 0;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dg_input2);
+            this.groupBox3.Controls.Add(this.dataGridView1);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Location = new System.Drawing.Point(11, 98);
             this.groupBox3.Name = "groupBox3";
@@ -406,17 +403,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Входные данные";
             // 
-            // dg_input2
+            // dataGridView1
             // 
-            this.dg_input2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dg_input2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.l,
             this.h,
             this.с});
-            this.dg_input2.Location = new System.Drawing.Point(6, 60);
-            this.dg_input2.Name = "dg_input2";
-            this.dg_input2.Size = new System.Drawing.Size(349, 150);
-            this.dg_input2.TabIndex = 1;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 60);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(349, 150);
+            this.dataGridView1.TabIndex = 1;
             // 
             // l
             // 
@@ -453,11 +450,11 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.button_create_cutting2);
+            this.tabPage5.Controls.Add(this.button2);
             this.tabPage5.Controls.Add(this.label8);
             this.tabPage5.Controls.Add(this.label7);
-            this.tabPage5.Controls.Add(this.tb_w2);
-            this.tabPage5.Controls.Add(this.tb_l2);
+            this.tabPage5.Controls.Add(this.textBox2);
+            this.tabPage5.Controls.Add(this.textBox1);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
@@ -466,15 +463,14 @@
             this.tabPage5.Text = "Один размер";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // button_create_cutting2
+            // button2
             // 
-            this.button_create_cutting2.Location = new System.Drawing.Point(236, 17);
-            this.button_create_cutting2.Name = "button_create_cutting2";
-            this.button_create_cutting2.Size = new System.Drawing.Size(96, 36);
-            this.button_create_cutting2.TabIndex = 4;
-            this.button_create_cutting2.Text = "Сформировать раскрой";
-            this.button_create_cutting2.UseVisualStyleBackColor = true;
-            this.button_create_cutting2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Location = new System.Drawing.Point(236, 17);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(96, 36);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Сформировать раскрой";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -494,19 +490,23 @@
             this.label7.TabIndex = 2;
             this.label7.Text = "Длина";
             // 
-            // tb_w2
+            // textBox2
             // 
-            this.tb_w2.Location = new System.Drawing.Point(130, 26);
-            this.tb_w2.Name = "tb_w2";
-            this.tb_w2.Size = new System.Drawing.Size(100, 20);
-            this.tb_w2.TabIndex = 1;
+            this.textBox2.Location = new System.Drawing.Point(130, 26);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 1;
+            this.textBox2.Text = "0";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // tb_l2
+            // textBox1
             // 
-            this.tb_l2.Location = new System.Drawing.Point(24, 26);
-            this.tb_l2.Name = "tb_l2";
-            this.tb_l2.Size = new System.Drawing.Size(100, 20);
-            this.tb_l2.TabIndex = 0;
+            this.textBox1.Location = new System.Drawing.Point(24, 26);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.Text = "0";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // MainForm
             // 
@@ -531,9 +531,9 @@
             this.tabPage4.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_output2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dg_input2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
@@ -574,16 +574,16 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dg_input2;
-        private System.Windows.Forms.Button button_create_cutting2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tb_w2;
-        private System.Windows.Forms.TextBox tb_l2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn l;
         private System.Windows.Forms.DataGridViewTextBoxColumn h;
         private System.Windows.Forms.DataGridViewTextBoxColumn с;
-        private System.Windows.Forms.DataGridView dg_output2;
+        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
     }

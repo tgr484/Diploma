@@ -13,18 +13,15 @@ namespace Diploma
     {
         //Остаток
         public double h;
-        //Длина детали
+        //Длина детали?
         public double L;
-        //Ширина детали
-        public double W;
         //Карта раскроя (Индекс - деталь, значение - количество в карте раскроя)
         public int[] map;
-        public Cutting_Pattern2(int M,double _L, double _W)
+        public Cutting_Pattern2(int M,double _L)
         {
             map = new int[M];
             L = _L;
             h = L;
-            W = _W;
         }
         /// <summary>
         /// Добавление детали
@@ -48,8 +45,8 @@ namespace Diploma
         /// <param name="d"></param>
         public void remove_detail(Detail d)
         {            
-            h += d.l;
-            map[d.i] -= 1;            
+                h += d.l;
+                map[d.i] -= 1;            
         }
     }
 }
