@@ -217,6 +217,7 @@
             this.button_load.TabIndex = 2;
             this.button_load.Text = "Загрузить заготовки из файла";
             this.button_load.UseVisualStyleBackColor = true;
+            this.button_load.Click += new System.EventHandler(this.button_load_Click);
             // 
             // tabControl_Type
             // 
@@ -267,7 +268,7 @@
             this.button_create_cutting_single.TabIndex = 3;
             this.button_create_cutting_single.Text = "Сформировать раскрой";
             this.button_create_cutting_single.UseVisualStyleBackColor = true;
-            this.button_create_cutting_single.Click += new System.EventHandler(this.button_create_cutting_Click);
+            this.button_create_cutting_single.Click += new System.EventHandler(this.button_create_cutting_single_Click);
             // 
             // tabPage2
             // 
@@ -293,6 +294,7 @@
             this.button_create_cutting_best.TabIndex = 12;
             this.button_create_cutting_best.Text = "Сформировать раскрой";
             this.button_create_cutting_best.UseVisualStyleBackColor = true;
+            this.button_create_cutting_best.Click += new System.EventHandler(this.button_create_cutting_best_Click_1);
             // 
             // label6
             // 
@@ -460,7 +462,6 @@
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Один размер";
             this.tabPage5.UseVisualStyleBackColor = true;
-            this.tabPage5.Click += new System.EventHandler(this.tabPage5_Click);
             // 
             // button_create_cutting2
             // 
@@ -492,6 +493,12 @@
             // 
             // tb_w2
             // 
+            this.textBox2.Location = new System.Drawing.Point(130, 26);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 1;
+            this.textBox2.Text = "0";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tb_w2.Location = new System.Drawing.Point(130, 26);
             this.tb_w2.Name = "tb_w2";
             this.tb_w2.Size = new System.Drawing.Size(100, 20);
@@ -499,6 +506,12 @@
             // 
             // tb_l2
             // 
+            this.textBox1.Location = new System.Drawing.Point(24, 26);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 0;
+            this.textBox1.Text = "0";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.tb_l2.Location = new System.Drawing.Point(24, 26);
             this.tb_l2.Name = "tb_l2";
             this.tb_l2.Size = new System.Drawing.Size(100, 20);
